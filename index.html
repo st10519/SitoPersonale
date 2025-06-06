@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Il mio sito personale</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      line-height: 1.8;
+    }
+
+    /* Navbar con combobox a sinistra e bottone a destra */
+    nav.combo-nav {
+      background-color: #512887;
+      padding: 1rem 2rem;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: nowrap;
+      position: relative; /* necessario per posizionare il titolo centrato */
+      min-height: 60px; /* altezza uniforme navbar */
+    }
+
+    /* Gruppo combobox (tutte e due insieme) */
+    .combo-groups {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .combo-group {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    nav.combo-nav label {
+      font-weight: bold;
+      white-space: nowrap;
+      font-size: 0.85rem; /* leggermente più piccolo */
+    }
+
+    nav.combo-nav select {
+      padding: 0.3rem 0.5rem; /* più piccolo */
+      font-size: 0.85rem; /* più piccolo */
+      border-radius: 5px;
+      border: none;
+      background-color: #b39ddb;
+      color: #3e1f70;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    nav.combo-nav select:hover,
+    nav.combo-nav select:focus {
+      background-color: #9575cd;
+      outline: none;
+      color: #fff;
+    }
+
+    .btn-pcto-nav {
+      background-color: #7e57c2;
+      color: white;
+      font-weight: 600;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .btn-pcto-nav:hover {
+      background-color: #5e35b1;
+    }
+
+    /* Titolo centrato nella navbar */
+    .nav-title {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-weight: 700;
+      font-size: 1.4rem;
+      user-select: none;
+      pointer-events: none; /* per non interferire con click */
+      white-space: nowrap;
+      color: white;
+    }
+
+    /* Sezione principale */
+    .main-content {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+      text-align: center;
+    }
+
+    .main-content img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      margin-bottom: 1.5rem;
+    }
+
+    .main-content p {
+      font-size: 1.1rem;
+    }
+
+    /* Hobby */
+    .hobby-section {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      max-width: 700px;
+      margin: 3rem auto 0 auto;
+      padding: 0 2rem;
+      text-align: left;
+    }
+
+    .hobby-section img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      flex-shrink: 0;
+    }
+
+    .hobby-section .hobby-text {
+      font-size: 1.1rem;
+      color: #444;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #6a1b9a;
+      color: white;
+      padding: 2rem 1rem;
+      margin-top: 4rem;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+
+    footer h2 {
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    footer a {
+      color: #d1c4e9;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 700px) {
+      nav.combo-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem;
+      }
+      .combo-groups {
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 0.5rem;
+      }
+      .btn-pcto-nav {
+        width: 100%;
+        max-width: 250px;
+      }
+      /* Nascondiamo titolo centrato per schermi piccoli */
+      .nav-title {
+        display: none;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .main-content img {
+        width: 150px;
+        height: 150px;
+      }
+
+      .hobby-section {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hobby-section img {
+        margin-bottom: 1rem;
+        width: 200px;
+        height: 200px;
+      }
+      .hobby-section .hobby-text {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar con combobox a sinistra e bottone a destra -->
+  <nav class="combo-nav">
+    <div class="combo-groups">
+      <div class="combo-group">
+        <label for="umanistiche">Materie umanistiche:</label>
+        <select id="umanistiche" onchange="if(this.value) location = this.value;">
+          <option value="">-- Seleziona --</option>
+          <option value="letteratura.html">Letteratura</option>
+          <option value="storia.html">Storia</option>
+          <option value="inglese.html">Inglese</option>
+        </select>
+      </div>
+
+      <div class="combo-group">
+        <label for="tecniche">Materie tecniche:</label>
+        <select id="tecniche" onchange="if(this.value) location = this.value;">
+          <option value="">-- Seleziona --</option>
+          <option value="matematica.html">Matematica</option>
+          <option value="informatica.html">Informatica</option>
+          <option value="GPOI.html">GPOI</option>
+          <option value="tpsit.html">Tpsit</option>
+          <option value="IA.html">IA</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="nav-title">Il mio sito personale</div>
+
+    <button class="btn-pcto-nav" onclick="location.href='PCTO.html'">Sezione PCTO</button>
+  </nav>
+
+  <!-- Contenuto principale -->
+  <div class="main-content">
+    <img src="iis.jpeg" alt="La mia foto personale">
+    <p>
+      Ciao, sono Mattia Balletti e sono uno studente dell’IIS Marconi Pieralisi di Jesi. Nel tempo libero mi piace soprattutto andare in bici, un’attività che mi permette di rilassarmi e stare all’aria aperta, oltre a tenermi in forma. Sono interessato all’informatica e proprio per questo, credo che la mia scuola sia il posto ideale dove poter approfondire le mie conoscenze e sviluppare le competenze necessarie per il mio futuro. Durante il mio percorso scolastico sto imparando molte cose nuove che mi aiutano a crescere non solo dal punto di vista tecnico, ma anche come persona.
+    </p>
+  </div>
+  <!-- Sezione hobby -->
+  <div class="hobby-section">
+    <img src="bici.jpg" alt="Immagine hobby bici">
+    <div class="hobby-text">
+      <h2>Il mio hobby</h2>
+      <p>Andare in bici è una delle mie passioni più grandi. Mi piace esplorare nuovi percorsi, godermi la natura e mantenere uno stile di vita attivo e sano. Questo hobby mi aiuta a rilassarmi e a ricaricare le energie dopo le giornate di studio.</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <h2>Contatti</h2>
+    <p>📞 Telefono: <a href="tel:+391234567890">+39 123 456 7890</a></p>
+    <p>✉️ Email: <a href="mailto:mattia.balletti@gmail.it">mattia.balletti@email.it</a></p>
+    <p>📍 Indirizzo: Via Roma 10, Jesi (AN), Italia</p>
+  </footer>
+</body>
+</html>

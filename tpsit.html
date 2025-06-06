@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TPSIT</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      line-height: 1.7;
+    }
+
+    /* Navbar con bottone e testo centrato */
+    nav.combo-nav {
+      background-color: #512887;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      position: relative;
+      height: 60px;
+    }
+
+    .btn-home {
+      background-color: #7e57c2;
+      color: white;
+      font-weight: 600;
+      border: none;
+      padding: 0.6rem 1.3rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: background-color 0.3s ease;
+      white-space: nowrap;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      z-index: 2;
+    }
+
+    .btn-home:hover {
+      background-color: #5e35b1;
+      box-shadow: 0 4px 12px rgba(94,53,177,0.5);
+    }
+
+    /* Testo centrato verticalmente e orizzontalmente nella navbar,
+       ma senza spostare il bottone */
+    .nav-text {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 700;
+      pointer-events: none; /* evita che il testo intercetti click */
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Sezione testo + immagini */
+    .content-section {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2.5rem;
+      background-color: #fff;
+      padding: 2rem 2.5rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    .content-text {
+      font-size: 1.15rem;
+      color: #444;
+      text-align: justify;
+      line-height: 1.8;
+    }
+
+    .content-images {
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+      justify-content: center;
+    }
+
+    .content-images img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      object-fit: cover;
+      height: 160px;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .content-images img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .content-section {
+        grid-template-columns: 1fr;
+        padding: 1.5rem 1.5rem;
+      }
+
+      .content-images {
+        flex-direction: row;
+        gap: 1rem;
+      }
+
+      .content-images img {
+        height: 140px;
+        flex: 1;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .content-images {
+        flex-direction: column;
+      }
+
+      .content-images img {
+        height: 120px;
+      }
+
+      nav.combo-nav {
+        height: 50px;
+        padding: 0.5rem 1rem;
+      }
+
+      .nav-text {
+        font-size: 1.2rem;
+      }
+
+      .btn-home {
+        font-size: 0.95rem;
+        padding: 0.5rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="combo-nav">
+    <button class="btn-home" onclick="location.href='index.html'">Home</button>
+    <div class="nav-text">Materia: TPSIT</div>
+  </nav>
+
+  <div class="container">
+    <section class="content-section">
+      <article class="content-text">
+        <p>
+          Sono molto appassionato di informatica e questa materia rappresenta per me una finestra sul futuro.
+          Amo approfondire argomenti come la programmazione, il networking e la sicurezza informatica.
+          Studiare qui all’IIS Marconi Pieralisi di Jesi mi permette di sviluppare competenze tecniche fondamentali per il mondo del lavoro e per la mia crescita personale.
+          <br><br>
+          La tecnologia è in continua evoluzione e io desidero rimanere aggiornato per poter affrontare con successo le sfide che mi aspettano.
+          Credo che la scuola sia il luogo ideale per coltivare queste passioni e costruire basi solide per il mio futuro.
+        </p>
+      </article>
+      <aside class="content-images">
+        <img src="computer.jpg" alt="Computer e tecnologia">
+        <img src="coding.jpg" alt="Scrittura di codice">
+      </aside>
+    </section>
+  </div>
+
+</body>
+</html>
