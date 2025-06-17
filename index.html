@@ -77,7 +77,14 @@
     }
 
     .btn-pcto-nav:hover {
-      background-color: #1035AC;
+      background-color: #0b2787;
+    }
+
+    /* Contenitore bottoni affiancati */
+    .btn-container {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
     }
 
     /* Titolo centrato nella navbar */
@@ -183,6 +190,10 @@
       .nav-title {
         display: none;
       }
+      .btn-container {
+        width: 100%;
+        justify-content: center;
+      }
     }
 
     @media (max-width: 500px) {
@@ -208,7 +219,7 @@
 </head>
 <body>
 
-  <!-- Navbar con combobox a sinistra e bottone a destra -->
+  <!-- Navbar con combobox a sinistra e bottoni a destra -->
   <nav class="combo-nav">
     <div class="combo-groups">
       <div class="combo-group">
@@ -230,14 +241,17 @@
           <option value="GPOI.html">GPOI</option>
           <option value="tpsit.html">Tpsit</option>
           <option value="IA.html">IA</option>
-           <option value="sistemi.html">SISTEMI E RETI</option>
+          <option value="sistemi.html">SISTEMI E RETI</option>
         </select>
       </div>
     </div>
 
     <div class="nav-title">Il mio sito personale</div>
 
-    <button class="btn-pcto-nav" onclick="location.href='PCTO.html'">Sezione PCTO</button>
+    <div class="btn-container">
+      <button class="btn-pcto-nav" onclick="location.href='PCTO.html'">Sezione PCTO</button>
+      <button class="btn-pcto-nav" onclick="location.href='EdCivica.html'">Ed Civica</button>
+    </div>
   </nav>
 
   <!-- Contenuto principale -->
@@ -256,11 +270,3 @@
     </div>
   </div>
   <!-- Footer -->
-  <footer>
-    <h2>Contatti</h2>
-    <p>📞 Telefono: <a href="tel:+391234567890">+39 339 620 7719</a></p>
-    <p>✉️ Email: <a href="mailto:mattia.balletti@gmail.it">mattia.balletti@email.it</a></p>
-    <p>📍 Indirizzo: Via Roma 10, Jesi</p>
-  </footer>
-</body>
-</html>
